@@ -4,8 +4,11 @@ import fr.iut.editeur.document.Document;
 
 public class CommandeMajuscules extends CommandeDocument {
 
+    private static final String DescriptionCommande = "majuscules;start;end\n" +
+            "    Met en majuscules le texte entre les positions start et end\n";
+
     public CommandeMajuscules(Document document, String[] parameters) {
-        super(document, parameters);
+        super(document, parameters, DescriptionCommande);
     }
 
     @Override
@@ -18,5 +21,9 @@ public class CommandeMajuscules extends CommandeDocument {
         int end = Integer.parseInt(parameters[2]);
         this.document.majuscules(start, end);
         super.executer();
+    }
+
+    public String getDescriptionCommande() {
+    	return DescriptionCommande;
     }
 }

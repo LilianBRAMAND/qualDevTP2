@@ -6,8 +6,10 @@ import javax.print.Doc;
 
 public class CommandeInserer extends CommandeDocument{
 
+    private static final String DescriptionCommande = "inserer;start;insertion\n   Insère le texte insertion à la position start\n";
+
     public CommandeInserer(Document document, String[] parameters) {
-        super(document, parameters);
+        super(document, parameters, DescriptionCommande);
     }
 
     @Override
@@ -20,5 +22,9 @@ public class CommandeInserer extends CommandeDocument{
         String insertion = parameters[2];
         this.document.inserer(start, insertion);
         super.executer();
+    }
+
+    public String getDescriptionCommande() {
+    	return DescriptionCommande;
     }
 }
