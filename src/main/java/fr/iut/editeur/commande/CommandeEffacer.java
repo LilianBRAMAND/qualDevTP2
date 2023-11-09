@@ -4,8 +4,10 @@ import fr.iut.editeur.document.Document;
 
 public class CommandeEffacer extends CommandeDocument{
 
+    private static final String DescriptionCommande = "effacer;start;end\n  Efface le texte entre les positions start et end\n";
+
     public CommandeEffacer(Document document, String[] parameters) {
-        super(document, parameters);
+        super(document, parameters, DescriptionCommande);
     }
 
     @Override
@@ -18,5 +20,9 @@ public class CommandeEffacer extends CommandeDocument{
         int end = Integer.parseInt(parameters[2]);
         this.document.effacer(start, end);
         super.executer();
+    }
+
+    public String getDescriptionCommande() {
+    	return DescriptionCommande;
     }
 }

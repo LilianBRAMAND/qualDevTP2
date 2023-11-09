@@ -8,13 +8,21 @@ public abstract class CommandeDocument implements Commande {
 
     protected String[]parameters;
 
-    public CommandeDocument(Document document, String[] parameters) {
+    protected String DescriptionCommande;
+
+    public CommandeDocument(Document document, String[] parameters, String DescriptionCommande) {
         this.document = document;
         this.parameters = parameters;
+        this.DescriptionCommande = DescriptionCommande;
     }
 
     @Override
     public void executer() {
         System.out.println(this.document);
+    }
+
+    //créer une description de la commande
+    public String toString() {
+    	return DescriptionCommande;
     }
 }
