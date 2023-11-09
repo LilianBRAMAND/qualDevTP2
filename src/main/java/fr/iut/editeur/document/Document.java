@@ -52,7 +52,14 @@ public class Document {
         String leftPart = texte.substring(0, start);
         String rightPart = texte.substring(start);
         texte = leftPart + insertion + rightPart;
+
     }
 
+    public void minuscules(int start, int end) {
+        String leftPart = texte.substring(0, start);
+        String rightPart = texte.substring(end);
+        String toLower = texte.substring(start, end).toLowerCase();
+        texte = leftPart + toLower + rightPart;
+    }
 
 }
